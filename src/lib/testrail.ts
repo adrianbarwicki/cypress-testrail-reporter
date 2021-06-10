@@ -48,8 +48,8 @@ export class TestRail {
         url: url,
         headers: { 'Content-Type': 'application/json' }, 
         auth: {
-            username: this.options.username,
-            password: this.options.password
+            username: this.process.env.CYPRESS_TESTRAIL_REPORTER_USERNAME || this.options.username,
+            password: this.process.env.CYPRESS_TESTRAIL_REPORTER_PASSWORD || this.options.password
         } 
       })
       .then(response => {
